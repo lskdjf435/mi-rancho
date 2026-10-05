@@ -1,0 +1,78 @@
+
+:root{
+  --bg:#f4ecdf;--paper:#fffaf1;--paper2:#f7edde;--ink:#2d241d;--muted:#76695e;
+  --wood:#60442f;--wood2:#8a6548;--green:#3f704e;--green2:#75916d;--gold:#d6a13c;
+  --line:#ead7bd;--good:#dff2e3;--good-border:#78ad83;--bad:#f5ded9;--bad-border:#c97972;
+  --shadow:0 20px 60px rgba(67,42,24,.12);--radius:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:
+radial-gradient(circle at 10% 0%,rgba(255,246,213,.92),transparent 30%),
+linear-gradient(180deg,#dce9d6 0 210px,var(--bg) 210px);
+font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);overflow-x:hidden}
+button{font:inherit;color:inherit}
+button:focus-visible{outline:3px solid #e6b858;outline-offset:3px}
+.ambient{position:fixed;z-index:-1;filter:blur(40px);opacity:.35;border-radius:50%;pointer-events:none}
+.ambient-a{width:350px;height:350px;background:#f5bd75;left:-120px;top:180px}
+.ambient-b{width:420px;height:420px;background:#90aa84;right:-160px;top:420px}
+.app-shell{max-width:1120px;margin:0 auto;padding:14px 18px 112px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:16px}
+.brand{border:0;background:transparent;display:flex;align-items:center;gap:10px;cursor:pointer;padding:0;text-align:left}
+.brand-mark{width:46px;height:46px;border-radius:16px;background:linear-gradient(145deg,#7a5438,#493423);color:#fff5e5;display:grid;place-items:center;font:700 16px Georgia,serif;box-shadow:0 9px 24px #53392333}
+.brand b{display:block;font:600 27px Georgia,serif;line-height:1}
+.brand small{display:block;color:var(--muted);font-size:11px;letter-spacing:.05em;margin-top:4px}
+.top-stats{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.stat-chip,.wallet,.mini-pill{display:flex;align-items:center;gap:6px;background:#fff9;border:1px solid var(--line);border-radius:999px;padding:8px 11px;font-weight:800;backdrop-filter:blur(12px)}
+.coin-chip{background:#fff7dd}
+.screen{display:none;animation:screenIn .35s ease both}
+.screen.is-active{display:block}
+@keyframes screenIn{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:16px}
+.hero-card,.glass-card,.panel,.quiz-card,.result-card{border:1px solid rgba(235,216,190,.95);border-radius:var(--radius);box-shadow:var(--shadow)}
+.hero-card{min-height:510px;overflow:hidden;background:#4f3929}
+.hero-photo-wrap{position:relative;height:100%;min-height:510px;overflow:hidden}
+.hero-photo,.care-photo-inner,.quiz-horse-mini{
+  background-image:url("./luna-stable.webp");
+  background-size:cover;background-position:center;
+}
+.hero-photo{position:absolute;inset:-3%;transform:scale(1.06);animation:horseBreath 6s ease-in-out infinite alternate;filter:saturate(1.08) contrast(1.03)}
+@keyframes horseBreath{from{transform:scale(1.055) translateY(0)}to{transform:scale(1.075) translateY(-2px)}}
+.hero-photo-wrap:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(31,20,12,.68) 100%),linear-gradient(90deg,rgba(37,23,13,.22),transparent 45%)}
+.sun-glow{position:absolute;width:220px;height:220px;border-radius:50%;background:#ffd78a77;filter:blur(38px);right:-40px;top:-40px;z-index:1;animation:glow 5s ease-in-out infinite alternate}
+@keyframes glow{to{opacity:.55;transform:scale(1.08)}}
+.dust{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none}
+.dust i{position:absolute;width:4px;height:4px;border-radius:50%;background:#ffe3a9aa;animation:dust 8s linear infinite}
+@keyframes dust{from{transform:translateY(30px) translateX(0);opacity:0}20%{opacity:1}to{transform:translateY(-250px) translateX(45px);opacity:0}}
+.hero-badge{position:absolute;z-index:3;left:18px;top:18px;background:#fff4dfde;color:#533b28;border:1px solid #f1dfc4;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:900;letter-spacing:.05em}
+.horse-nameplate{position:absolute;z-index:3;left:20px;bottom:20px;color:#fff}
+.horse-nameplate small{display:block;text-transform:uppercase;letter-spacing:.16em;font-weight:800;font-size:10px;color:#f8e5c5}
+.horse-nameplate strong{font:600 54px Georgia,serif;text-shadow:0 2px 12px #0006}
+.glass-card{padding:28px;background:linear-gradient(155deg,#fffdf8eb,#f6e9d8e6);backdrop-filter:blur(18px);display:flex;flex-direction:column;justify-content:center}
+.eyebrow{font-size:11px;letter-spacing:.14em;font-weight:900;color:#7b654e}
+.welcome-card h1{font:600 clamp(34px,5vw,50px)/1.05 Georgia,serif;margin:9px 0 12px}
+.welcome-card p,.panel p,.result-note{color:var(--muted);line-height:1.55}
+.primary-actions{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 20px}
+.btn{border:0;border-radius:15px;padding:12px 16px;font-weight:850;cursor:pointer;transition:.18s ease;box-shadow:0 8px 18px #402a1810}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(1px) scale(.99)}
+.btn.primary{background:linear-gradient(145deg,#487c57,#356545);color:white}
+.btn.soft{background:#f0dfc8;color:#493423}
+.btn.full{width:100%}
+.horse-meters{display:grid;gap:13px;margin-top:4px}
+.meter-label{display:flex;align-items:center;justify-content:space-between;font-size:13px;margin-bottom:5px}
+.meter-track{height:12px;border-radius:99px;background:#e9dece;overflow:hidden;box-shadow:inset 0 1px 4px #6c4c2a14}
+.meter-track i{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,#6da978,#3e744d);transition:width .7s cubic-bezier(.2,.8,.2,1)}
+.dashboard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:15px}
+.panel{background:linear-gradient(160deg,#fffdf9,#fbf4e9);padding:19px}
+.panel.wide{grid-column:span 3}
+.panel-head{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.panel h2,.panel h3{margin:5px 0 8px}
+.panel-icon{font-size:34px;margin-bottom:10px}
+.mission-card{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;background:linear-gradient(100deg,#f6ead8,#fffaf1);border:1px solid #ead5b7;border-radius:18px;padding:13px 14px;margin-top:9px;transition:.18s ease}
+.mission-card:hover{transform:translateY(-2px);box-shadow:0 12px 25px #472b1510}
+.mission-icon{width:46px;height:46px;border-radius:15px;background:#e9dbc6;display:grid;place-items:center;font-size:24px}
+.mission-card small{display:block;color:var(--muted);margin-top:3px}
+.screen-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:4px 0 14px}
+.screen-title h2{font:600 clamp(30px,4vw,42px) Georgia,serif;margin:3px 0}
+.round-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff9;font-weight:900;cursor:pointer}
