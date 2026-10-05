@@ -1,0 +1,98 @@
+/* Mi Rancho 0.4 — illustrated care & story scenes */
+#screen-care .care-photo{
+  min-height:520px;
+  background:#40291b;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
+}
+#screen-care .care-photo-inner{
+  background-image:url("./assets/luna-stall-care.webp")!important;
+  background-position:center 48%;
+  background-size:cover;
+  transform:scale(1.02);
+  filter:saturate(1.06) contrast(1.02);
+}
+#screen-care .care-photo:before{
+  content:"";
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,211,137,.08),transparent 42%,rgba(33,19,10,.28));
+}
+.stall-label{
+  position:absolute;z-index:6;left:16px;top:16px;
+  background:rgba(255,248,233,.9);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.55);border-radius:999px;
+  padding:8px 11px;font-size:11px;font-weight:900;letter-spacing:.08em;color:#5c402b;
+}
+.care-magic{position:absolute;inset:0;z-index:7;pointer-events:none;overflow:hidden;border-radius:inherit}
+.magic-particle{
+  position:absolute;left:50%;top:50%;
+  font-family:Georgia,serif;font-weight:900;line-height:1;
+  opacity:0;text-shadow:0 0 12px currentColor,0 2px 9px #fff8;
+  animation:magicBurst .95s cubic-bezier(.15,.8,.2,1) forwards;
+}
+.magic-particle.gold{color:#ffd66e}
+.magic-particle.rose{color:#ff8798}
+.magic-particle.aqua{color:#9be7ff}
+@keyframes magicBurst{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.25) rotate(0deg)}
+  22%{opacity:1}
+  100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1.35) rotate(var(--rot))}
+}
+.care-photo.care-glow-gold:after,
+.care-photo.care-glow-rose:after,
+.care-photo.care-glow-aqua:after{
+  content:"";position:absolute;inset:0;z-index:5;pointer-events:none;border-radius:inherit;
+  animation:careAura .85s ease-out both;
+}
+.care-photo.care-glow-gold:after{background:radial-gradient(circle at 53% 43%,rgba(255,220,112,.42),transparent 43%)}
+.care-photo.care-glow-rose:after{background:radial-gradient(circle at 53% 43%,rgba(255,141,151,.32),transparent 44%)}
+.care-photo.care-glow-aqua:after{background:radial-gradient(circle at 53% 43%,rgba(140,226,255,.3),transparent 46%)}
+@keyframes careAura{0%{opacity:0}35%{opacity:1}100%{opacity:0}}
+.care-message.v04-highlight{
+  animation:messagePop .45s ease both;
+}
+@keyframes messagePop{0%{transform:translateY(7px);opacity:.4}100%{transform:none;opacity:1}}
+
+.story-scene{
+  position:relative;overflow:hidden;border-radius:19px;
+  margin:-6px -6px 18px;border:1px solid #ead3b4;
+  background:#4b392e;box-shadow:0 13px 30px rgba(59,38,20,.12);
+}
+.story-scene[hidden]{display:none}
+.story-scene img{
+  display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center;
+  animation:sceneReveal .55s ease both;
+}
+.story-scene:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 55%,rgba(30,18,10,.7));
+  pointer-events:none;
+}
+.story-scene-caption{
+  position:absolute;z-index:2;left:15px;right:15px;bottom:13px;color:white;
+  text-shadow:0 2px 8px #000a;
+}
+.story-scene-caption small{display:block;font-size:10px;font-weight:900;letter-spacing:.13em;color:#ffe7bd}
+.story-scene-caption b{display:block;font:600 22px Georgia,serif;margin-top:2px}
+@keyframes sceneReveal{from{opacity:.25;transform:scale(1.045)}to{opacity:1;transform:scale(1)}}
+
+.mission-row.scene-mission{
+  background:linear-gradient(100deg,#fff7e8,#f1eee2);
+  border-color:#dcc6a3;
+}
+.mission-row.scene-mission .stamp{
+  background-image:url("./assets/stable-people.webp");
+  background-size:cover;background-position:center;
+  color:transparent;box-shadow:inset 0 0 0 1px #fff8;
+}
+
+.care-word{
+  display:inline-flex;align-items:center;gap:6px;margin-top:8px;
+  color:#fff7e3;background:#24170b88;border:1px solid #fff2;
+  padding:6px 9px;border-radius:999px;font-size:12px;font-weight:850;
+}
+
+@media(max-width:620px){
+  #screen-care .care-photo{min-height:430px}
+  .story-scene{margin:-4px -4px 14px}
+  .story-scene-caption b{font-size:19px}
+}
